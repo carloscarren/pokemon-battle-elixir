@@ -1,21 +1,10 @@
-# PokemonBattle
+# Pokemon Battle Elixir
 
-**TODO: Add description**
+Proyecto de Programación III - Universidad del Quindío
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pokemon_battle` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:pokemon_battle, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/pokemon_battle>.
-
+Sistema de batallas Pokémon por consola en Elixir con:
+- Registro e inicio de sesión
+- Persistencia en JSON
+- Sistema de sobres
+- Combate por turnos
+- Concurrencia y distribución
