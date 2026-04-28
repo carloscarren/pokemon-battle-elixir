@@ -1,0 +1,12 @@
+{
+  "carlos": {
+    "clave": "1234",
+    "equipos": {},
+    "inventario": [],
+    "monedas": 0,
+    "monedas_acumuladas": 0,
+    "sobres": [],
+    "usuario": "carlos",
+    "victorias": 0
+  }
+}
