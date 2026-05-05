@@ -1,0 +1,15 @@
+{
+  "Fuego": [
+    {"nombre": "ascuas", "tipo": "Fuego", "poder_base": 30},
+    {"nombre": "nitrocarga", "tipo": "Fuego", "poder_base": 30}
+  ],
+  "Agua": [
+    {"nombre": "pistola_agua", "tipo": "Agua", "poder_base": 40}
+  ],
+  "Electrico": [
+    {"nombre": "impactrueno", "tipo": "Electrico", "poder_base": 65}
+  ],
+  "Normal": [
+    {"nombre": "placaje", "tipo": "Normal", "poder_base": 35}
+  ]
+}

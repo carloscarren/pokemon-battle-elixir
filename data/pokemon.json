@@ -1,0 +1,20 @@
+{
+  "charmander": {
+    "tipos": ["Fuego"],
+    "ataque_base": 52,
+    "defensa_base": 43,
+    "velocidad_base": 65
+  },
+  "squirtle": {
+    "tipos": ["Agua"],
+    "ataque_base": 48,
+    "defensa_base": 65,
+    "velocidad_base": 43
+  },
+  "pikachu": {
+    "tipos": ["Electrico"],
+    "ataque_base": 55,
+    "defensa_base": 40,
+    "velocidad_base": 90
+  }
+}
