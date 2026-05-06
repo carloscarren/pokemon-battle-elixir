@@ -7,9 +7,7 @@ defmodule PokemonBattle.Application do
 
   @impl true
   def start(_type, _args) do
-    children = [
-      # Starts a worker by calling: PokemonBattle.Worker.start_link(arg)
-      # {PokemonBattle.Worker, arg}
+    children = [PokemonBattle.SupervisorBatallas
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

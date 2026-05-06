@@ -1,15 +1,40 @@
 {
   "Fuego": [
-    {"nombre": "ascuas", "tipo": "Fuego", "poder_base": 30},
-    {"nombre": "nitrocarga", "tipo": "Fuego", "poder_base": 30}
+    {"nombre": "ascuas", "tipo": "Fuego", "poder_base": 40, "precision": 100},
+    {"nombre": "nitrocarga", "tipo": "Fuego", "poder_base": 50, "precision": 95},
+    {"nombre": "lanzallamas", "tipo": "Fuego", "poder_base": 90, "precision": 85}
   ],
   "Agua": [
-    {"nombre": "pistola_agua", "tipo": "Agua", "poder_base": 40}
+    {"nombre": "pistola_agua", "tipo": "Agua", "poder_base": 40, "precision": 100},
+    {"nombre": "burbuja", "tipo": "Agua", "poder_base": 45, "precision": 100},
+    {"nombre": "hidrobomba", "tipo": "Agua", "poder_base": 100, "precision": 80}
   ],
   "Electrico": [
-    {"nombre": "impactrueno", "tipo": "Electrico", "poder_base": 65}
+    {"nombre": "impactrueno", "tipo": "Electrico", "poder_base": 60, "precision": 100},
+    {"nombre": "chispa", "tipo": "Electrico", "poder_base": 65, "precision": 100},
+    {"nombre": "trueno", "tipo": "Electrico", "poder_base": 100, "precision": 75}
+  ],
+  "Planta": [
+    {"nombre": "hoja_afilada", "tipo": "Planta", "poder_base": 55, "precision": 95},
+    {"nombre": "latigo_cepa", "tipo": "Planta", "poder_base": 45, "precision": 100}
   ],
   "Normal": [
-    {"nombre": "placaje", "tipo": "Normal", "poder_base": 35}
+    {"nombre": "placaje", "tipo": "Normal", "poder_base": 35, "precision": 100},
+    {"nombre": "golpe_cuerpo", "tipo": "Normal", "poder_base": 70, "precision": 100}
+  ],
+  "Roca": [
+    {"nombre": "lanzarrocas", "tipo": "Roca", "poder_base": 50, "precision": 90}
+  ],
+  "Tierra": [
+    {"nombre": "terremoto", "tipo": "Tierra", "poder_base": 100, "precision": 90}
+  ],
+  "Psiquico": [
+    {"nombre": "confusion", "tipo": "Psiquico", "poder_base": 50, "precision": 100}
+  ],
+  "Fantasma": [
+    {"nombre": "bola_sombra", "tipo": "Fantasma", "poder_base": 80, "precision": 100}
+  ],
+  "Lucha": [
+    {"nombre": "golpe_karate", "tipo": "Lucha", "poder_base": 50, "precision": 100}
   ]
 }

@@ -1,31 +1,16 @@
 {
   "carlos": {
     "clave": "1234",
-    "equipo_actual": [
-      87587,
-      37858,
-      14289
-    ],
-    "equipos": {
-      "team1": [
-        87587,
-        37858,
-        14289
-      ]
-    },
+    "equipo_actual": [],
+    "equipos": {},
     "inventario": [
       {
-        "ataque": 65,
-        "defensa": 88,
+        "ataque": 77,
+        "defensa": 36,
         "dueño_original": "carlos",
-        "especie": "squirtle",
-        "id": 87587,
+        "especie": "bellsprout",
+        "id": 54843,
         "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          },
           {
             "nombre": "ascuas",
             "poder_base": 30,
@@ -37,186 +22,141 @@
             "tipo": "Fuego"
           }
         ],
-        "rareza": "epico",
+        "rareza": "comun",
+        "velocidad": 41
+      },
+      {
+        "ataque": 31,
+        "defensa": 52,
+        "dueño_original": "carlos",
+        "especie": "voltorb",
+        "id": 6859,
+        "movimientos": [
+          {
+            "nombre": "impactrueno",
+            "poder_base": 65,
+            "tipo": "Electrico"
+          },
+          {
+            "nombre": "placaje",
+            "poder_base": 35,
+            "tipo": "Normal"
+          },
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 104
+      },
+      {
+        "ataque": 48,
+        "defensa": 37,
+        "dueño_original": "carlos",
+        "especie": "zubat",
+        "id": 21514,
+        "movimientos": [
+          {
+            "nombre": "impactrueno",
+            "poder_base": 65,
+            "tipo": "Electrico"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 30,
+            "tipo": "Fuego"
+          }
+        ],
+        "rareza": "comun",
         "velocidad": 58
-      },
-      {
-        "ataque": 63,
-        "defensa": 46,
-        "dueño_original": "carlos",
-        "especie": "pikachu",
-        "id": 37858,
-        "movimientos": [
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          }
-        ],
-        "rareza": "raro",
-        "velocidad": 103
-      },
-      {
-        "ataque": 65,
-        "defensa": 48,
-        "dueño_original": "carlos",
-        "especie": "pikachu",
-        "id": 14289,
-        "movimientos": [
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "raro",
-        "velocidad": 107
-      },
-      {
-        "ataque": 53,
-        "defensa": 44,
-        "dueño_original": "carlos",
-        "especie": "charmander",
-        "id": 5033,
-        "movimientos": [
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "ascuas",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 66
-      },
-      {
-        "ataque": 59,
-        "defensa": 49,
-        "dueño_original": "carlos",
-        "especie": "charmander",
-        "id": 11110,
-        "movimientos": [
-          {
-            "nombre": "ascuas",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          }
-        ],
-        "rareza": "raro",
-        "velocidad": 73
-      },
-      {
-        "ataque": 49,
-        "defensa": 66,
-        "dueño_original": "carlos",
-        "especie": "squirtle",
-        "id": 50912,
-        "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 44
-      },
-      {
-        "ataque": 51,
-        "defensa": 69,
-        "dueño_original": "carlos",
-        "especie": "squirtle",
-        "id": 41174,
-        "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 46
-      },
-      {
-        "ataque": 51,
-        "defensa": 70,
-        "dueño_original": "carlos",
-        "especie": "squirtle",
-        "id": 42714,
-        "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "ascuas",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 46
       }
     ],
     "monedas": 0,
     "monedas_acumuladas": 0,
     "sobres": [],
     "usuario": "carlos",
+    "victorias": 0
+  },
+  "tiffany": {
+    "clave": "1234",
+    "equipo_actual": [],
+    "equipos": {},
+    "inventario": [
+      {
+        "ataque": 45,
+        "defensa": 78,
+        "dueño_original": "tiffany",
+        "especie": "horsea",
+        "id": 97184,
+        "movimientos": [
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "placaje",
+            "poder_base": 35,
+            "tipo": "Normal"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 30,
+            "tipo": "Fuego"
+          }
+        ],
+        "rareza": "raro",
+        "velocidad": 67
+      },
+      {
+        "ataque": 131,
+        "defensa": 113,
+        "dueño_original": "tiffany",
+        "especie": "krabby",
+        "id": 64856,
+        "movimientos": [
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "impactrueno",
+            "poder_base": 65,
+            "tipo": "Electrico"
+          }
+        ],
+        "rareza": "epico",
+        "velocidad": 63
+      },
+      {
+        "ataque": 58,
+        "defensa": 26,
+        "dueño_original": "tiffany",
+        "especie": "diglett",
+        "id": 69130,
+        "movimientos": [
+          {
+            "nombre": "placaje",
+            "poder_base": 35,
+            "tipo": "Normal"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 30,
+            "tipo": "Fuego"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 100
+      }
+    ],
+    "monedas": 0,
+    "monedas_acumuladas": 0,
+    "sobres": [],
+    "usuario": "tiffany",
     "victorias": 0
   }
 }

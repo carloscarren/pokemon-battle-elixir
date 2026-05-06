@@ -11,10 +11,142 @@
     "defensa_base": 65,
     "velocidad_base": 43
   },
+  "bulbasaur": {
+    "tipos": ["Planta"],
+    "ataque_base": 49,
+    "defensa_base": 49,
+    "velocidad_base": 45
+  },
   "pikachu": {
     "tipos": ["Electrico"],
     "ataque_base": 55,
     "defensa_base": 40,
     "velocidad_base": 90
+  },
+  "eevee": {
+    "tipos": ["Normal"],
+    "ataque_base": 55,
+    "defensa_base": 50,
+    "velocidad_base": 55
+  },
+  "geodude": {
+    "tipos": ["Roca"],
+    "ataque_base": 80,
+    "defensa_base": 100,
+    "velocidad_base": 20
+  },
+  "onix": {
+    "tipos": ["Roca"],
+    "ataque_base": 45,
+    "defensa_base": 160,
+    "velocidad_base": 70
+  },
+  "pidgey": {
+    "tipos": ["Volador"],
+    "ataque_base": 45,
+    "defensa_base": 40,
+    "velocidad_base": 56
+  },
+  "zubat": {
+    "tipos": ["Volador"],
+    "ataque_base": 45,
+    "defensa_base": 35,
+    "velocidad_base": 55
+  },
+  "magikarp": {
+    "tipos": ["Agua"],
+    "ataque_base": 10,
+    "defensa_base": 55,
+    "velocidad_base": 80
+  },
+  "growlithe": {
+    "tipos": ["Fuego"],
+    "ataque_base": 70,
+    "defensa_base": 45,
+    "velocidad_base": 60
+  },
+  "psyduck": {
+    "tipos": ["Agua"],
+    "ataque_base": 52,
+    "defensa_base": 48,
+    "velocidad_base": 55
+  },
+  "oddish": {
+    "tipos": ["Planta"],
+    "ataque_base": 50,
+    "defensa_base": 55,
+    "velocidad_base": 30
+  },
+  "bellsprout": {
+    "tipos": ["Planta"],
+    "ataque_base": 75,
+    "defensa_base": 35,
+    "velocidad_base": 40
+  },
+  "magnemite": {
+    "tipos": ["Electrico"],
+    "ataque_base": 35,
+    "defensa_base": 70,
+    "velocidad_base": 45
+  },
+  "voltorb": {
+    "tipos": ["Electrico"],
+    "ataque_base": 30,
+    "defensa_base": 50,
+    "velocidad_base": 100
+  },
+  "sandshrew": {
+    "tipos": ["Tierra"],
+    "ataque_base": 75,
+    "defensa_base": 85,
+    "velocidad_base": 40
+  },
+  "diglett": {
+    "tipos": ["Tierra"],
+    "ataque_base": 55,
+    "defensa_base": 25,
+    "velocidad_base": 95
+  },
+  "machop": {
+    "tipos": ["Lucha"],
+    "ataque_base": 80,
+    "defensa_base": 50,
+    "velocidad_base": 35
+  },
+  "abra": {
+    "tipos": ["Psiquico"],
+    "ataque_base": 20,
+    "defensa_base": 15,
+    "velocidad_base": 90
+  },
+  "gastly": {
+    "tipos": ["Fantasma"],
+    "ataque_base": 35,
+    "defensa_base": 30,
+    "velocidad_base": 80
+  },
+  "drowzee": {
+    "tipos": ["Psiquico"],
+    "ataque_base": 48,
+    "defensa_base": 45,
+    "velocidad_base": 42
+  },
+  "krabby": {
+    "tipos": ["Agua"],
+    "ataque_base": 105,
+    "defensa_base": 90,
+    "velocidad_base": 50
+  },
+  "cubone": {
+    "tipos": ["Tierra"],
+    "ataque_base": 50,
+    "defensa_base": 95,
+    "velocidad_base": 35
+  },
+  "horsea": {
+    "tipos": ["Agua"],
+    "ataque_base": 40,
+    "defensa_base": 70,
+    "velocidad_base": 60
   }
 }
