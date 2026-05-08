@@ -1,4 +1,103 @@
 {
+  "ash": {
+    "clave": "123",
+    "equipo_actual": [],
+    "equipos": {},
+    "inventario": [
+      {
+        "ataque": 58,
+        "defensa": 54,
+        "dueño_original": "ash",
+        "especie": "drowzee",
+        "id": 3557,
+        "movimientos": [
+          {
+            "nombre": "confusion",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Psiquico"
+          },
+          {
+            "nombre": "terremoto",
+            "poder_base": 100,
+            "precision": 90,
+            "tipo": "Tierra"
+          }
+        ],
+        "rareza": "raro",
+        "velocidad": 50
+      },
+      {
+        "ataque": 54,
+        "defensa": 49,
+        "dueño_original": "ash",
+        "especie": "psyduck",
+        "id": 24946,
+        "movimientos": [
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "lanzallamas",
+            "poder_base": 90,
+            "precision": 85,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "latigo_cepa",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Planta"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 57
+      },
+      {
+        "ataque": 55,
+        "defensa": 51,
+        "dueño_original": "ash",
+        "especie": "psyduck",
+        "id": 31569,
+        "movimientos": [
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "burbuja",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 58
+      }
+    ],
+    "monedas": 0,
+    "monedas_acumuladas": 0,
+    "sobres": [],
+    "usuario": "ash",
+    "victorias": 0
+  },
   "carlos": {
     "clave": "1234",
     "equipo_actual": [],
@@ -77,6 +176,111 @@
     "monedas_acumuladas": 0,
     "sobres": [],
     "usuario": "carlos",
+    "victorias": 0
+  },
+  "misty": {
+    "clave": "123",
+    "equipo_actual": [],
+    "equipos": {},
+    "inventario": [
+      {
+        "ataque": 55,
+        "defensa": 50,
+        "dueño_original": "misty",
+        "especie": "psyduck",
+        "id": 14803,
+        "movimientos": [
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "burbuja",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "hoja_afilada",
+            "poder_base": 55,
+            "precision": 95,
+            "tipo": "Planta"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 58
+      },
+      {
+        "ataque": 46,
+        "defensa": 41,
+        "dueño_original": "misty",
+        "especie": "pidgey",
+        "id": 28340,
+        "movimientos": [
+          {
+            "nombre": "bola_sombra",
+            "poder_base": 80,
+            "precision": 100,
+            "tipo": "Fantasma"
+          },
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 57
+      },
+      {
+        "ataque": 56,
+        "defensa": 46,
+        "dueño_original": "misty",
+        "especie": "charmander",
+        "id": 99881,
+        "movimientos": [
+          {
+            "nombre": "lanzallamas",
+            "poder_base": 90,
+            "precision": 85,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "confusion",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Psiquico"
+          },
+          {
+            "nombre": "bola_sombra",
+            "poder_base": 80,
+            "precision": 100,
+            "tipo": "Fantasma"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 70
+      }
+    ],
+    "monedas": 0,
+    "monedas_acumuladas": 0,
+    "sobres": [],
+    "usuario": "misty",
     "victorias": 0
   },
   "tiffany": {

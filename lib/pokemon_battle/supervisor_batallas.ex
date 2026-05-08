@@ -1,7 +1,9 @@
 defmodule PokemonBattle.SupervisorBatallas do
   use DynamicSupervisor
 
-  def start_link(_args) do
+  alias PokemonBattle.Batalla
+
+  def start_link(_arg) do
     DynamicSupervisor.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
@@ -10,7 +12,12 @@ defmodule PokemonBattle.SupervisorBatallas do
   end
 
   def crear_batalla(jugador1, jugador2) do
-    spec = {PokemonBattle.Batalla, {jugador1, jugador2}}
+    spec = {Batalla, {jugador1, jugador2}}
+
     DynamicSupervisor.start_child(__MODULE__, spec)
+  end
+
+  def batallas_activas() do
+    DynamicSupervisor.which_children(__MODULE__)
   end
 end
