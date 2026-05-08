@@ -1,264 +1,61 @@
 {
-  "ash": {
+  "carlos": {
     "clave": "123",
-    "equipo_actual": [],
     "equipos": {},
     "inventario": [
       {
-        "ataque": 58,
-        "defensa": 54,
-        "dueño_original": "ash",
-        "especie": "drowzee",
-        "id": 3557,
+        "ataque": 36,
+        "defensa": 71,
+        "dueño_original": "carlos",
+        "especie": "magnemite",
+        "id": 36953,
         "movimientos": [
           {
-            "nombre": "confusion",
-            "poder_base": 50,
+            "nombre": "impactrueno",
+            "poder_base": 60,
             "precision": 100,
-            "tipo": "Psiquico"
+            "tipo": "Electrico"
           },
           {
-            "nombre": "terremoto",
+            "nombre": "trueno",
             "poder_base": 100,
-            "precision": 90,
-            "tipo": "Tierra"
-          }
-        ],
-        "rareza": "raro",
-        "velocidad": 50
-      },
-      {
-        "ataque": 54,
-        "defensa": 49,
-        "dueño_original": "ash",
-        "especie": "psyduck",
-        "id": 24946,
-        "movimientos": [
-          {
-            "nombre": "hidrobomba",
-            "poder_base": 100,
-            "precision": 80,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "precision": 100,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "lanzallamas",
-            "poder_base": 90,
-            "precision": 85,
-            "tipo": "Fuego"
+            "precision": 75,
+            "tipo": "Electrico"
           },
           {
             "nombre": "latigo_cepa",
             "poder_base": 45,
             "precision": 100,
             "tipo": "Planta"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 57
-      },
-      {
-        "ataque": 55,
-        "defensa": 51,
-        "dueño_original": "ash",
-        "especie": "psyduck",
-        "id": 31569,
-        "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "precision": 100,
-            "tipo": "Agua"
           },
-          {
-            "nombre": "burbuja",
-            "poder_base": 45,
-            "precision": 100,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "hidrobomba",
-            "poder_base": 100,
-            "precision": 80,
-            "tipo": "Agua"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 58
-      }
-    ],
-    "monedas": 0,
-    "monedas_acumuladas": 0,
-    "sobres": [],
-    "usuario": "ash",
-    "victorias": 0
-  },
-  "carlos": {
-    "clave": "1234",
-    "equipo_actual": [],
-    "equipos": {},
-    "inventario": [
-      {
-        "ataque": 77,
-        "defensa": 36,
-        "dueño_original": "carlos",
-        "especie": "bellsprout",
-        "id": 54843,
-        "movimientos": [
-          {
-            "nombre": "ascuas",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 41
-      },
-      {
-        "ataque": 31,
-        "defensa": 52,
-        "dueño_original": "carlos",
-        "especie": "voltorb",
-        "id": 6859,
-        "movimientos": [
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          },
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 104
-      },
-      {
-        "ataque": 48,
-        "defensa": 37,
-        "dueño_original": "carlos",
-        "especie": "zubat",
-        "id": 21514,
-        "movimientos": [
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          },
-          {
-            "nombre": "ascuas",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 58
-      }
-    ],
-    "monedas": 0,
-    "monedas_acumuladas": 0,
-    "sobres": [],
-    "usuario": "carlos",
-    "victorias": 0
-  },
-  "misty": {
-    "clave": "123",
-    "equipo_actual": [],
-    "equipos": {},
-    "inventario": [
-      {
-        "ataque": 55,
-        "defensa": 50,
-        "dueño_original": "misty",
-        "especie": "psyduck",
-        "id": 14803,
-        "movimientos": [
-          {
-            "nombre": "hidrobomba",
-            "poder_base": 100,
-            "precision": 80,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "burbuja",
-            "poder_base": 45,
-            "precision": 100,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 50,
-            "precision": 95,
-            "tipo": "Fuego"
-          },
-          {
-            "nombre": "hoja_afilada",
-            "poder_base": 55,
-            "precision": 95,
-            "tipo": "Planta"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 58
-      },
-      {
-        "ataque": 46,
-        "defensa": 41,
-        "dueño_original": "misty",
-        "especie": "pidgey",
-        "id": 28340,
-        "movimientos": [
           {
             "nombre": "bola_sombra",
             "poder_base": 80,
             "precision": 100,
             "tipo": "Fantasma"
-          },
-          {
-            "nombre": "hidrobomba",
-            "poder_base": 100,
-            "precision": 80,
-            "tipo": "Agua"
           }
         ],
         "rareza": "comun",
-        "velocidad": 57
+        "velocidad": 46
       },
       {
-        "ataque": 56,
-        "defensa": 46,
-        "dueño_original": "misty",
-        "especie": "charmander",
-        "id": 99881,
+        "ataque": 50,
+        "defensa": 50,
+        "dueño_original": "carlos",
+        "especie": "bulbasaur",
+        "id": 76701,
         "movimientos": [
           {
-            "nombre": "lanzallamas",
-            "poder_base": 90,
-            "precision": 85,
-            "tipo": "Fuego"
+            "nombre": "hoja_afilada",
+            "poder_base": 55,
+            "precision": 95,
+            "tipo": "Planta"
           },
           {
-            "nombre": "nitrocarga",
-            "poder_base": 50,
-            "precision": 95,
-            "tipo": "Fuego"
+            "nombre": "latigo_cepa",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Planta"
           },
           {
             "nombre": "confusion",
@@ -267,100 +64,49 @@
             "tipo": "Psiquico"
           },
           {
-            "nombre": "bola_sombra",
-            "poder_base": 80,
+            "nombre": "burbuja",
+            "poder_base": 45,
             "precision": 100,
-            "tipo": "Fantasma"
+            "tipo": "Agua"
           }
         ],
         "rareza": "comun",
-        "velocidad": 70
-      }
-    ],
-    "monedas": 0,
-    "monedas_acumuladas": 0,
-    "sobres": [],
-    "usuario": "misty",
-    "victorias": 0
-  },
-  "tiffany": {
-    "clave": "1234",
-    "equipo_actual": [],
-    "equipos": {},
-    "inventario": [
+        "velocidad": 46
+      },
       {
-        "ataque": 45,
-        "defensa": 78,
-        "dueño_original": "tiffany",
-        "especie": "horsea",
-        "id": 97184,
+        "ataque": 50,
+        "defensa": 176,
+        "dueño_original": "carlos",
+        "especie": "onix",
+        "id": 95189,
         "movimientos": [
           {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
+            "nombre": "lanzarrocas",
+            "poder_base": 50,
+            "precision": 90,
+            "tipo": "Roca"
+          },
+          {
+            "nombre": "golpe_karate",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Lucha"
+          },
+          {
+            "nombre": "burbuja",
+            "poder_base": 45,
+            "precision": 100,
             "tipo": "Agua"
-          },
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
           }
         ],
         "rareza": "raro",
-        "velocidad": 67
-      },
-      {
-        "ataque": 131,
-        "defensa": 113,
-        "dueño_original": "tiffany",
-        "especie": "krabby",
-        "id": 64856,
-        "movimientos": [
-          {
-            "nombre": "pistola_agua",
-            "poder_base": 40,
-            "tipo": "Agua"
-          },
-          {
-            "nombre": "impactrueno",
-            "poder_base": 65,
-            "tipo": "Electrico"
-          }
-        ],
-        "rareza": "epico",
-        "velocidad": 63
-      },
-      {
-        "ataque": 58,
-        "defensa": 26,
-        "dueño_original": "tiffany",
-        "especie": "diglett",
-        "id": 69130,
-        "movimientos": [
-          {
-            "nombre": "placaje",
-            "poder_base": 35,
-            "tipo": "Normal"
-          },
-          {
-            "nombre": "nitrocarga",
-            "poder_base": 30,
-            "tipo": "Fuego"
-          }
-        ],
-        "rareza": "comun",
-        "velocidad": 100
+        "velocidad": 77
       }
     ],
-    "monedas": 0,
-    "monedas_acumuladas": 0,
+    "monedas": 900,
+    "monedas_acumuladas": 1000,
     "sobres": [],
-    "usuario": "tiffany",
+    "usuario": "carlos",
     "victorias": 0
   }
 }

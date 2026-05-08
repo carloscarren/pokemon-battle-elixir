@@ -7,8 +7,12 @@ defmodule PokemonBattle.GestorEntrenadores do
     case Map.get(data, usuario) do
       nil ->
         nuevo = crear_entrenador(usuario, clave)
-        nuevo_data = Map.put(data, usuario, nuevo)
+
+        nuevo_data =
+          Map.put(data, usuario, nuevo)
+
         Persistencia.guardar(nuevo_data)
+
         {:ok, :registrado, nuevo}
 
       entrenador ->
@@ -20,208 +24,113 @@ defmodule PokemonBattle.GestorEntrenadores do
     end
   end
 
-  def perfil(usuario) do
+  def agregar_monedas(usuario, cantidad) do
     data = Persistencia.cargar()
 
-    case Map.get(data, usuario) do
-      nil ->
-        IO.puts("Usuario no encontrado")
+    entrenador = Map.get(data, usuario)
 
-      entrenador ->
-        IO.puts("=== Perfil de #{usuario} ===")
-        IO.puts("Monedas: #{entrenador["monedas"]}")
-        IO.puts("Sobres pendientes: #{length(entrenador["sobres"])}")
-        IO.puts("Pokémon en inventario: #{length(entrenador["inventario"])}")
+    if entrenador do
+      monedas_actuales =
+        entrenador["monedas"] || 0
+
+      acumuladas =
+        entrenador["monedas_acumuladas"] || 0
+
+      actualizado =
+        entrenador
+        |> Map.put(
+          "monedas",
+          monedas_actuales + cantidad
+        )
+        |> Map.put(
+          "monedas_acumuladas",
+          acumuladas + cantidad
+        )
+
+      nuevo_data =
+        Map.put(data, usuario, actualizado)
+
+      Persistencia.guardar(nuevo_data)
+
+      {:ok, actualizado}
+    else
+      {:error, "Entrenador no encontrado"}
     end
   end
 
-  def inventario(usuario) do
+  def descontar_monedas(usuario, cantidad) do
     data = Persistencia.cargar()
 
-    case Map.get(data, usuario) do
-      nil ->
-        IO.puts("Usuario no encontrado")
+    entrenador = Map.get(data, usuario)
 
-      entrenador ->
-        inventario = Map.get(entrenador, "inventario", [])
-        pokedex = cargar_json("data/pokemon.json")
+    if entrenador do
+      monedas =
+        entrenador["monedas"] || 0
 
-        IO.puts("=== Inventario de #{usuario} (#{length(inventario)} Pokémon) ===")
+      if monedas >= cantidad do
+        actualizado =
+          Map.put(
+            entrenador,
+            "monedas",
+            monedas - cantidad
+          )
 
-        inventario
-        |> Enum.with_index(1)
-        |> Enum.each(fn {p, i} ->
-          especie = p["especie"]
-          base = pokedex[especie]
-          tipos = Enum.join(base["tipos"], "/")
+        nuevo_data =
+          Map.put(data, usuario, actualizado)
 
-          movimientos =
-            p["movimientos"]
-            |> Enum.map(fn m -> "#{m["nombre"]}(#{m["poder_base"]})" end)
-            |> Enum.join(", ")
+        Persistencia.guardar(nuevo_data)
 
-          IO.puts("  #{i}. [##{p["id"]}] #{String.capitalize(especie)} (#{tipos}) [#{p["rareza"]}]")
-          IO.puts("     Ataque: #{p["ataque"]} | Defensa: #{p["defensa"]} | Velocidad: #{p["velocidad"]} | Salud máx: 100")
-          IO.puts("     Dueño original: #{p["dueño_original"]}")
-          IO.puts("     Movimientos: #{movimientos}")
-          IO.puts("")
-        end)
+        {:ok, actualizado}
+      else
+        {:error, "Monedas insuficientes"}
+      end
+    else
+      {:error, "Entrenador no encontrado"}
     end
   end
 
-  def crear_equipo(usuario, nombre, ids) do
+  def registrar_victoria(usuario) do
     data = Persistencia.cargar()
-    entrenador = data[usuario]
-    equipos = entrenador["equipos"]
-    inventario = entrenador["inventario"]
 
-    cond do
-      Map.has_key?(equipos, nombre) ->
-        IO.puts("Ya existe un equipo con ese nombre")
+    entrenador = Map.get(data, usuario)
 
-      length(ids) == 0 or length(ids) > 3 ->
-        IO.puts("El equipo debe tener entre 1 y 3 Pokémon")
+    if entrenador do
+      victorias =
+        entrenador["victorias"] || 0
 
-      true ->
-        pokemons =
-          Enum.map(ids, fn id ->
-            Enum.find(inventario, fn p -> p["id"] == id end)
-          end)
+      actualizado =
+        Map.put(
+          entrenador,
+          "victorias",
+          victorias + 1
+        )
 
-        if Enum.any?(pokemons, &is_nil/1) do
-          IO.puts("Algún Pokémon no existe en el inventario")
-        else
-          nuevos_equipos = Map.put(equipos, nombre, ids)
+      nuevo_data =
+        Map.put(data, usuario, actualizado)
 
-          nuevo_entrenador =
-            entrenador
-            |> Map.put("equipos", nuevos_equipos)
+      Persistencia.guardar(nuevo_data)
 
-          nuevo_data = Map.put(data, usuario, nuevo_entrenador)
-          Persistencia.guardar(nuevo_data)
-
-          IO.puts("Equipo creado correctamente")
-        end
+      {:ok, actualizado}
+    else
+      {:error, "Entrenador no encontrado"}
     end
   end
 
-  def listar_equipos(usuario) do
+  def obtener_entrenador(usuario) do
     data = Persistencia.cargar()
-    entrenador = data[usuario]
 
-    equipos = entrenador["equipos"]
-    inventario = entrenador["inventario"]
-
-    IO.puts("Equipos guardados:")
-
-    Enum.each(equipos, fn {nombre, ids} ->
-      nombres =
-        ids
-        |> Enum.map(fn id ->
-          p = Enum.find(inventario, fn x -> x["id"] == id end)
-          if p, do: "[##{id}] #{String.capitalize(p["especie"])}", else: "[##{id}] ?"
-        end)
-        |> Enum.join(", ")
-
-      IO.puts("  #{nombre} [#{length(ids)}/3]: #{nombres}")
-    end)
+    Map.get(data, usuario)
   end
 
-  def usar_equipo(usuario, nombre) do
+  def guardar_entrenador(usuario, entrenador) do
     data = Persistencia.cargar()
-    entrenador = data[usuario]
-    equipos = entrenador["equipos"]
-    inventario = entrenador["inventario"]
 
-    case Map.get(equipos, nombre) do
-      nil ->
-        IO.puts("Equipo no existe")
+    nuevo_data =
+      Map.put(data, usuario, entrenador)
 
-      ids ->
-        valido =
-          Enum.all?(ids, fn id ->
-            Enum.any?(inventario, fn p -> p["id"] == id end)
-          end)
+    Persistencia.guardar(nuevo_data)
 
-        if valido do
-          nuevo_entrenador = Map.put(entrenador, "equipo_actual", ids)
-          nuevo_data = Map.put(data, usuario, nuevo_entrenador)
-          Persistencia.guardar(nuevo_data)
-
-          IO.puts("Equipo cargado")
-        else
-          IO.puts("Faltan Pokémon en el inventario")
-        end
-    end
-  end
-
-  def agregar_pokemon_equipo(usuario, nombre, id) do
-    data = Persistencia.cargar()
-    entrenador = data[usuario]
-
-    equipos = entrenador["equipos"]
-    inventario = entrenador["inventario"]
-
-    case Map.get(equipos, nombre) do
-      nil ->
-        IO.puts("Equipo no existe")
-
-      ids ->
-        cond do
-          length(ids) >= 3 ->
-            IO.puts("El equipo ya tiene 3 Pokémon")
-
-          Enum.member?(ids, id) ->
-            IO.puts("El Pokémon ya está en el equipo")
-
-          true ->
-            existe = Enum.any?(inventario, fn p -> p["id"] == id end)
-
-            if existe do
-              nuevos_ids = ids ++ [id]
-              nuevos_equipos = Map.put(equipos, nombre, nuevos_ids)
-
-              nuevo_entrenador = Map.put(entrenador, "equipos", nuevos_equipos)
-              nuevo_data = Map.put(data, usuario, nuevo_entrenador)
-
-              Persistencia.guardar(nuevo_data)
-              IO.puts("Pokémon agregado")
-            else
-              IO.puts("El Pokémon no está en el inventario")
-            end
-        end
-    end
-  end
-
-  def quitar_pokemon_equipo(usuario, nombre, id) do
-    data = Persistencia.cargar()
-    entrenador = data[usuario]
-
-    equipos = entrenador["equipos"]
-
-    case Map.get(equipos, nombre) do
-      nil ->
-        IO.puts("Equipo no existe")
-
-      ids ->
-        cond do
-          not Enum.member?(ids, id) ->
-            IO.puts("El Pokémon no está en el equipo")
-
-          length(ids) == 1 ->
-            IO.puts("No puedes dejar el equipo vacío")
-
-          true ->
-            nuevos_ids = Enum.filter(ids, fn x -> x != id end)
-            nuevos_equipos = Map.put(equipos, nombre, nuevos_ids)
-
-            nuevo_entrenador = Map.put(entrenador, "equipos", nuevos_equipos)
-            nuevo_data = Map.put(data, usuario, nuevo_entrenador)
-
-            Persistencia.guardar(nuevo_data)
-            IO.puts("Pokémon eliminado del equipo")
-        end
-    end
+    :ok
   end
 
   defp crear_entrenador(usuario, clave) do
@@ -233,13 +142,7 @@ defmodule PokemonBattle.GestorEntrenadores do
       "victorias" => 0,
       "inventario" => [],
       "sobres" => [],
-      "equipos" => %{},
-      "equipo_actual" => []
+      "equipos" => %{}
     }
-  end
-
-  defp cargar_json(ruta) do
-    {:ok, contenido} = File.read(ruta)
-    Jason.decode!(contenido)
   end
 end
