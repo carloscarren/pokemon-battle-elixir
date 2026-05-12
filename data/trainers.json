@@ -1,7 +1,210 @@
 {
   "carlos": {
     "clave": "123",
-    "equipos": {},
+    "equipo_activo": [
+      {
+        "ataque": 36,
+        "defensa": 71,
+        "dueño_original": "carlos",
+        "especie": "magnemite",
+        "id": 36953,
+        "movimientos": [
+          {
+            "nombre": "impactrueno",
+            "poder_base": 60,
+            "precision": 100,
+            "tipo": "Electrico"
+          },
+          {
+            "nombre": "trueno",
+            "poder_base": 100,
+            "precision": 75,
+            "tipo": "Electrico"
+          },
+          {
+            "nombre": "latigo_cepa",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Planta"
+          },
+          {
+            "nombre": "bola_sombra",
+            "poder_base": 80,
+            "precision": 100,
+            "tipo": "Fantasma"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 46
+      },
+      {
+        "ataque": 50,
+        "defensa": 50,
+        "dueño_original": "carlos",
+        "especie": "bulbasaur",
+        "id": 76701,
+        "movimientos": [
+          {
+            "nombre": "hoja_afilada",
+            "poder_base": 55,
+            "precision": 95,
+            "tipo": "Planta"
+          },
+          {
+            "nombre": "latigo_cepa",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Planta"
+          },
+          {
+            "nombre": "confusion",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Psiquico"
+          },
+          {
+            "nombre": "burbuja",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 46
+      },
+      {
+        "ataque": 50,
+        "defensa": 176,
+        "dueño_original": "carlos",
+        "especie": "onix",
+        "id": 95189,
+        "movimientos": [
+          {
+            "nombre": "lanzarrocas",
+            "poder_base": 50,
+            "precision": 90,
+            "tipo": "Roca"
+          },
+          {
+            "nombre": "golpe_karate",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Lucha"
+          },
+          {
+            "nombre": "burbuja",
+            "poder_base": 45,
+            "precision": 100,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "raro",
+        "velocidad": 77
+      }
+    ],
+    "equipos": {
+      "rapido": [
+        {
+          "ataque": 36,
+          "defensa": 71,
+          "dueño_original": "carlos",
+          "especie": "magnemite",
+          "id": 36953,
+          "movimientos": [
+            {
+              "nombre": "impactrueno",
+              "poder_base": 60,
+              "precision": 100,
+              "tipo": "Electrico"
+            },
+            {
+              "nombre": "trueno",
+              "poder_base": 100,
+              "precision": 75,
+              "tipo": "Electrico"
+            },
+            {
+              "nombre": "latigo_cepa",
+              "poder_base": 45,
+              "precision": 100,
+              "tipo": "Planta"
+            },
+            {
+              "nombre": "bola_sombra",
+              "poder_base": 80,
+              "precision": 100,
+              "tipo": "Fantasma"
+            }
+          ],
+          "rareza": "comun",
+          "velocidad": 46
+        },
+        {
+          "ataque": 50,
+          "defensa": 50,
+          "dueño_original": "carlos",
+          "especie": "bulbasaur",
+          "id": 76701,
+          "movimientos": [
+            {
+              "nombre": "hoja_afilada",
+              "poder_base": 55,
+              "precision": 95,
+              "tipo": "Planta"
+            },
+            {
+              "nombre": "latigo_cepa",
+              "poder_base": 45,
+              "precision": 100,
+              "tipo": "Planta"
+            },
+            {
+              "nombre": "confusion",
+              "poder_base": 50,
+              "precision": 100,
+              "tipo": "Psiquico"
+            },
+            {
+              "nombre": "burbuja",
+              "poder_base": 45,
+              "precision": 100,
+              "tipo": "Agua"
+            }
+          ],
+          "rareza": "comun",
+          "velocidad": 46
+        },
+        {
+          "ataque": 50,
+          "defensa": 176,
+          "dueño_original": "carlos",
+          "especie": "onix",
+          "id": 95189,
+          "movimientos": [
+            {
+              "nombre": "lanzarrocas",
+              "poder_base": 50,
+              "precision": 90,
+              "tipo": "Roca"
+            },
+            {
+              "nombre": "golpe_karate",
+              "poder_base": 50,
+              "precision": 100,
+              "tipo": "Lucha"
+            },
+            {
+              "nombre": "burbuja",
+              "poder_base": 45,
+              "precision": 100,
+              "tipo": "Agua"
+            }
+          ],
+          "rareza": "raro",
+          "velocidad": 77
+        }
+      ]
+    },
     "inventario": [
       {
         "ataque": 36,
@@ -103,10 +306,323 @@
         "velocidad": 77
       }
     ],
-    "monedas": 900,
-    "monedas_acumuladas": 1000,
+    "monedas": 1000,
+    "monedas_acumuladas": 1100,
     "sobres": [],
     "usuario": "carlos",
+    "victorias": 1
+  },
+  "tiffany": {
+    "clave": "123",
+    "equipo_activo": [
+      {
+        "ataque": 11,
+        "defensa": 62,
+        "dueño_original": "tiffany",
+        "especie": "magikarp",
+        "id": 7458,
+        "movimientos": [
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          }
+        ],
+        "rareza": "raro",
+        "velocidad": 90
+      },
+      {
+        "ataque": 53,
+        "defensa": 44,
+        "dueño_original": "tiffany",
+        "especie": "charmander",
+        "id": 44294,
+        "movimientos": [
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "confusion",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Psiquico"
+          },
+          {
+            "nombre": "golpe_karate",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Lucha"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 66
+      },
+      {
+        "ataque": 36,
+        "defensa": 31,
+        "dueño_original": "tiffany",
+        "especie": "gastly",
+        "id": 74917,
+        "movimientos": [
+          {
+            "nombre": "bola_sombra",
+            "poder_base": 80,
+            "precision": 100,
+            "tipo": "Fantasma"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 82
+      }
+    ],
+    "equipos": {
+      "rapido": [
+        {
+          "ataque": 11,
+          "defensa": 62,
+          "dueño_original": "tiffany",
+          "especie": "magikarp",
+          "id": 7458,
+          "movimientos": [
+            {
+              "nombre": "pistola_agua",
+              "poder_base": 40,
+              "precision": 100,
+              "tipo": "Agua"
+            },
+            {
+              "nombre": "hidrobomba",
+              "poder_base": 100,
+              "precision": 80,
+              "tipo": "Agua"
+            },
+            {
+              "nombre": "nitrocarga",
+              "poder_base": 50,
+              "precision": 95,
+              "tipo": "Fuego"
+            },
+            {
+              "nombre": "ascuas",
+              "poder_base": 40,
+              "precision": 100,
+              "tipo": "Fuego"
+            }
+          ],
+          "rareza": "raro",
+          "velocidad": 90
+        },
+        {
+          "ataque": 53,
+          "defensa": 44,
+          "dueño_original": "tiffany",
+          "especie": "charmander",
+          "id": 44294,
+          "movimientos": [
+            {
+              "nombre": "nitrocarga",
+              "poder_base": 50,
+              "precision": 95,
+              "tipo": "Fuego"
+            },
+            {
+              "nombre": "ascuas",
+              "poder_base": 40,
+              "precision": 100,
+              "tipo": "Fuego"
+            },
+            {
+              "nombre": "confusion",
+              "poder_base": 50,
+              "precision": 100,
+              "tipo": "Psiquico"
+            },
+            {
+              "nombre": "golpe_karate",
+              "poder_base": 50,
+              "precision": 100,
+              "tipo": "Lucha"
+            }
+          ],
+          "rareza": "comun",
+          "velocidad": 66
+        },
+        {
+          "ataque": 36,
+          "defensa": 31,
+          "dueño_original": "tiffany",
+          "especie": "gastly",
+          "id": 74917,
+          "movimientos": [
+            {
+              "nombre": "bola_sombra",
+              "poder_base": 80,
+              "precision": 100,
+              "tipo": "Fantasma"
+            },
+            {
+              "nombre": "ascuas",
+              "poder_base": 40,
+              "precision": 100,
+              "tipo": "Fuego"
+            },
+            {
+              "nombre": "pistola_agua",
+              "poder_base": 40,
+              "precision": 100,
+              "tipo": "Agua"
+            }
+          ],
+          "rareza": "comun",
+          "velocidad": 82
+        }
+      ]
+    },
+    "inventario": [
+      {
+        "ataque": 11,
+        "defensa": 62,
+        "dueño_original": "tiffany",
+        "especie": "magikarp",
+        "id": 7458,
+        "movimientos": [
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "hidrobomba",
+            "poder_base": 100,
+            "precision": 80,
+            "tipo": "Agua"
+          },
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          }
+        ],
+        "rareza": "raro",
+        "velocidad": 90
+      },
+      {
+        "ataque": 53,
+        "defensa": 44,
+        "dueño_original": "tiffany",
+        "especie": "charmander",
+        "id": 44294,
+        "movimientos": [
+          {
+            "nombre": "nitrocarga",
+            "poder_base": 50,
+            "precision": 95,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "confusion",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Psiquico"
+          },
+          {
+            "nombre": "golpe_karate",
+            "poder_base": 50,
+            "precision": 100,
+            "tipo": "Lucha"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 66
+      },
+      {
+        "ataque": 36,
+        "defensa": 31,
+        "dueño_original": "tiffany",
+        "especie": "gastly",
+        "id": 74917,
+        "movimientos": [
+          {
+            "nombre": "bola_sombra",
+            "poder_base": 80,
+            "precision": 100,
+            "tipo": "Fantasma"
+          },
+          {
+            "nombre": "ascuas",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Fuego"
+          },
+          {
+            "nombre": "pistola_agua",
+            "poder_base": 40,
+            "precision": 100,
+            "tipo": "Agua"
+          }
+        ],
+        "rareza": "comun",
+        "velocidad": 82
+      }
+    ],
+    "monedas": 930,
+    "monedas_acumuladas": 1030,
+    "sobres": [],
+    "usuario": "tiffany",
     "victorias": 0
   }
 }
