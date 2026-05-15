@@ -320,26 +320,26 @@ defmodule PokemonBattle.SistemaSobres do
     }
   end
 
-  # =========================
-  # MOVIMIENTOS
-  # =========================
+ # =========================
+# MOVIMIENTOS
+# =========================
+defp asignar_movimientos(
+       tipos,
+       moves
+     ) do
 
-  defp asignar_movimientos(
-         tipos,
-         moves
-       ) do
+  movimientos_tipo =
+    tipos
+    |> Enum.flat_map(fn tipo ->
+      moves[tipo] || []
+    end)
 
-    movimientos_tipo =
-      tipos
-      |> Enum.flat_map(fn tipo ->
-        moves[tipo] || []
-      end)
+  movimientos_globales =
+    moves
+    |> Map.values()
+    |> List.flatten()
 
-    movimientos_globales =
-      moves
-      |> Map.values()
-      |> List.flatten()
-
+  movimientos =
     (
       Enum.take_random(
         movimientos_tipo,
@@ -347,14 +347,15 @@ defmodule PokemonBattle.SistemaSobres do
       ) ++
       Enum.take_random(
         movimientos_globales,
-        2
+        10
       )
     )
     |> Enum.uniq_by(
       & &1["nombre"]
     )
-    |> Enum.take(4)
-  end
+
+  Enum.take(movimientos, 4)
+end
 
   # =========================
   # MOSTRAR POKÉMON
@@ -412,6 +413,6 @@ defmodule PokemonBattle.SistemaSobres do
   end
 
   defp generar_id_unico() do
-    :rand.uniform(99999)
+  System.unique_integer([:positive])
   end
 end

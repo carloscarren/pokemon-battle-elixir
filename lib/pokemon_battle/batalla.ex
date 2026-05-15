@@ -37,24 +37,29 @@ defmodule PokemonBattle.Batalla do
         {:stop, :no_equipo}
 
       true ->
-        p1 =
-          equipo1
-          |> Enum.at(0)
-          |> Map.put("hp", 100)
+equipo1_hp =
+  Enum.map(equipo1, fn p ->
+    Map.put(p, "hp", 100)
+  end)
 
-        p2 =
-          equipo2
-          |> Enum.at(0)
-          |> Map.put("hp", 100)
+equipo2_hp =
+  Enum.map(equipo2, fn p ->
+    Map.put(p, "hp", 100)
+  end)
 
-        estado = %{
-          jugador1: j1,
-          jugador2: j2,
-          pokemon1: p1,
-          pokemon2: p2,
-          turno: 1,
-          acciones: %{}
-        }
+estado = %{
+  jugador1: j1,
+  jugador2: j2,
+
+  equipo1: equipo1_hp,
+  equipo2: equipo2_hp,
+
+  activo1: 0,
+  activo2: 0,
+
+  turno: 1,
+  acciones: %{}
+}
 
         IO.puts("Batalla iniciada entre #{j1} y #{j2}")
 
@@ -85,28 +90,76 @@ defmodule PokemonBattle.Batalla do
   # =========================
   # TURNOS
   # =========================
-  defp resolver_turno(estado) do
-    j1 = estado.jugador1
-    j2 = estado.jugador2
+defp resolver_turno(estado) do
+  j1 = estado.jugador1
+  j2 = estado.jugador2
 
-    p1 = estado.pokemon1
-    p2 = estado.pokemon2
+  equipo1 = estado.equipo1
+  equipo2 = estado.equipo2
 
-    tipos1 = Persistencia.obtener_tipos(p1["especie"])
-    tipos2 = Persistencia.obtener_tipos(p2["especie"])
+  activo1 = estado.activo1
+  activo2 = estado.activo2
 
-    p1 = Map.put(p1, "tipos", tipos1)
-    p2 = Map.put(p2, "tipos", tipos2)
+  p1 = Enum.at(equipo1, activo1)
+  p2 = Enum.at(equipo2, activo2)
 
-    mov1 = Enum.random(p1["movimientos"])
-    mov2 = Enum.random(p2["movimientos"])
+  tipos1 =
+    Persistencia.obtener_tipos(
+      p1["especie"]
+    )
 
-    if p1["velocidad"] >= p2["velocidad"] do
-      ejecutar_turno(estado, j1, p1, mov1, j2, p2, mov2)
-    else
-      ejecutar_turno(estado, j2, p2, mov2, j1, p1, mov1)
-    end
+  tipos2 =
+    Persistencia.obtener_tipos(
+      p2["especie"]
+    )
+
+  p1 = Map.put(p1, "tipos", tipos1)
+  p2 = Map.put(p2, "tipos", tipos2)
+
+  nombre_mov1 =
+    estado.acciones[j1]
+
+  nombre_mov2 =
+    estado.acciones[j2]
+
+  mov1 =
+    Enum.find(
+      p1["movimientos"],
+      fn m ->
+        m["nombre"] == nombre_mov1
+      end
+    )
+
+  mov2 =
+    Enum.find(
+      p2["movimientos"],
+      fn m ->
+        m["nombre"] == nombre_mov2
+      end
+    )
+
+  if p1["velocidad"] >= p2["velocidad"] do
+    ejecutar_turno(
+      estado,
+      j1,
+      p1,
+      mov1,
+      j2,
+      p2,
+      mov2
+    )
+  else
+    ejecutar_turno(
+      estado,
+      j2,
+      p2,
+      mov2,
+      j1,
+      p1,
+      mov1
+    )
   end
+end
 
   # =========================
   # EJECUCIÓN TURNO
@@ -122,7 +175,14 @@ defmodule PokemonBattle.Batalla do
 
     if hpB <= 0 do
       IO.puts("#{jB} ha sido derrotado")
-      verificar_fin(%{estado | pokemon1: pA, pokemon2: pB})
+      nuevo_estado =
+  actualizar_pokemones(
+    estado,
+    pA,
+    pB
+  )
+
+verificar_fin(nuevo_estado)
     else
       res2 = MotorCombate.calcular_danio(pB, pA, movB)
 
@@ -134,37 +194,184 @@ defmodule PokemonBattle.Batalla do
 
       IO.puts("HP #{jA}: #{hpA} | HP #{jB}: #{hpB}")
 
-      verificar_fin(%{estado | pokemon1: pA, pokemon2: pB})
+      nuevo_estado =
+  actualizar_pokemones(
+    estado,
+    pA,
+    pB
+  )
+
+verificar_fin(nuevo_estado)
     end
   end
 
+# =========================
+# FIN DE BATALLA
+# =========================
+defp verificar_fin(estado) do
+  vivos1 =
+    Enum.any?(
+      estado.equipo1,
+      fn p -> p["hp"] > 0 end
+    )
+
+  vivos2 =
+    Enum.any?(
+      estado.equipo2,
+      fn p -> p["hp"] > 0 end
+    )
+
+  cond do
+
+    # =====================
+    # GANA JUGADOR 2
+    # =====================
+    !vivos1 ->
+      IO.puts("Gana #{estado.jugador2}")
+
+      GestorEntrenadores.agregar_monedas(
+        estado.jugador2,
+        100
+      )
+
+      GestorEntrenadores.registrar_victoria(
+        estado.jugador2
+      )
+
+      GestorEntrenadores.agregar_monedas(
+        estado.jugador1,
+        30
+      )
+
+      {:stop, :normal, estado}
+
+    # =====================
+    # GANA JUGADOR 1
+    # =====================
+    !vivos2 ->
+      IO.puts("Gana #{estado.jugador1}")
+
+      GestorEntrenadores.agregar_monedas(
+        estado.jugador1,
+        100
+      )
+
+      GestorEntrenadores.registrar_victoria(
+        estado.jugador1
+      )
+
+      GestorEntrenadores.agregar_monedas(
+        estado.jugador2,
+        30
+      )
+
+      {:stop, :normal, estado}
+
+    true ->
+
+      estado =
+        cambiar_si_debilitado(estado)
+
+      {:noreply,
+       %{
+         estado
+         | turno: estado.turno + 1,
+           acciones: %{}
+       }}
+  end
+end
   # =========================
-  # FIN DE BATALLA
+# BUSCAR MOVIMIENTO
+# =========================
+defp buscar_movimiento(
+       pokemon,
+       nombre_movimiento
+     ) do
+
+  Enum.find(
+    pokemon["movimientos"],
+    fn mov ->
+      mov["nombre"] == nombre_movimiento
+    end
+  )
+end
+# =========================
+# ACTUALIZAR POKÉMONES
+# =========================
+defp actualizar_pokemones(
+       estado,
+       p1,
+       p2
+     ) do
+
+  equipo1 =
+    List.replace_at(
+      estado.equipo1,
+      estado.activo1,
+      p1
+    )
+
+  equipo2 =
+    List.replace_at(
+      estado.equipo2,
+      estado.activo2,
+      p2
+    )
+
+  %{
+    estado
+    | equipo1: equipo1,
+      equipo2: equipo2
+  }
+  end
   # =========================
-  defp verificar_fin(estado) do
-    cond do
-      estado.pokemon1["hp"] <= 0 ->
-        IO.puts("Gana #{estado.jugador2}")
+# CAMBIAR SI DEBILITADO
+# =========================
+defp cambiar_si_debilitado(estado) do
 
-        GestorEntrenadores.agregar_monedas(estado.jugador2, 100)
-        GestorEntrenadores.registrar_victoria(estado.jugador2)
+  activo1 =
+    obtener_siguiente_vivo(
+      estado.equipo1,
+      estado.activo1
+    )
 
-        GestorEntrenadores.agregar_monedas(estado.jugador1, 30)
+  activo2 =
+    obtener_siguiente_vivo(
+      estado.equipo2,
+      estado.activo2
+    )
 
-        {:stop, :normal, estado}
+  %{
+    estado
+    | activo1: activo1,
+      activo2: activo2
+  }
+end
+# =========================
+# BUSCAR SIGUIENTE VIVO
+# =========================
+defp obtener_siguiente_vivo(
+       equipo,
+       actual
+     ) do
 
-      estado.pokemon2["hp"] <= 0 ->
-        IO.puts("Gana #{estado.jugador1}")
+  pokemon_actual =
+    Enum.at(equipo, actual)
 
-        GestorEntrenadores.agregar_monedas(estado.jugador1, 100)
-        GestorEntrenadores.registrar_victoria(estado.jugador1)
-
-        GestorEntrenadores.agregar_monedas(estado.jugador2, 30)
-
-        {:stop, :normal, estado}
-
-      true ->
-        {:noreply, %{estado | turno: estado.turno + 1, acciones: %{}}}
+  if pokemon_actual["hp"] > 0 do
+    actual
+  else
+    equipo
+    |> Enum.with_index()
+    |> Enum.find(
+      fn {p, _i} ->
+        p["hp"] > 0
+      end
+    )
+    |> case do
+      nil -> actual
+      {_p, i} -> i
     end
   end
+end
 end

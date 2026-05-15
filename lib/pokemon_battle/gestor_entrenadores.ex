@@ -149,6 +149,179 @@ defmodule PokemonBattle.GestorEntrenadores do
       end
     end
   end
+  def listar_equipos(usuario) do
+  entrenador =
+    obtener_entrenador(usuario)
+
+  equipos =
+    entrenador["equipos"] || %{}
+
+  if map_size(equipos) == 0 do
+    IO.puts(
+      "\nNo tienes equipos guardados"
+    )
+  else
+    IO.puts(
+      "\n=== EQUIPOS GUARDADOS ===\n"
+    )
+
+    Enum.each(equipos, fn {nombre, pokemons} ->
+
+      lista =
+        pokemons
+        |> Enum.map(fn p ->
+          "[##{p["id"]}] #{p["especie"]}"
+        end)
+        |> Enum.join(", ")
+
+      IO.puts(
+        "#{nombre} " <>
+        "[#{length(pokemons)}/3]: " <>
+        lista
+      )
+    end)
+  end
+end
+def agregar_pokemon_equipo(
+      usuario,
+      nombre_equipo,
+      id_pokemon
+    ) do
+
+  entrenador =
+    obtener_entrenador(usuario)
+
+  equipos =
+    entrenador["equipos"] || %{}
+
+  equipo =
+    equipos[nombre_equipo]
+
+  cond do
+
+    equipo == nil ->
+      {:error, "Equipo no existe"}
+
+    length(equipo) >= 3 ->
+      {:error, "El equipo ya tiene 3 Pokémon"}
+
+    true ->
+
+      inventario =
+        entrenador["inventario"] || []
+
+      pokemon =
+        Enum.find(
+          inventario,
+          fn p ->
+            p["id"] == id_pokemon
+          end
+        )
+
+      cond do
+
+        pokemon == nil ->
+          {:error, "Pokémon no encontrado"}
+
+        Enum.any?(equipo, fn p ->
+          p["id"] == id_pokemon
+        end) ->
+          {:error, "Ese Pokémon ya está en el equipo"}
+
+        true ->
+
+          nuevo_equipo =
+            equipo ++ [pokemon]
+
+          nuevos_equipos =
+            Map.put(
+              equipos,
+              nombre_equipo,
+              nuevo_equipo
+            )
+
+          actualizado =
+            Map.put(
+              entrenador,
+              "equipos",
+              nuevos_equipos
+            )
+
+          guardar_entrenador(
+            usuario,
+            actualizado
+          )
+
+          {:ok, nuevo_equipo}
+      end
+  end
+end
+def quitar_pokemon_equipo(
+      usuario,
+      nombre_equipo,
+      id_pokemon
+    ) do
+
+  entrenador =
+    obtener_entrenador(usuario)
+
+  equipos =
+    entrenador["equipos"] || %{}
+
+  equipo =
+    equipos[nombre_equipo]
+
+  cond do
+
+    equipo == nil ->
+      {:error, "Equipo no existe"}
+
+    length(equipo) <= 1 ->
+      {:error, "No puedes dejar el equipo vacío"}
+
+    true ->
+
+      existe =
+        Enum.any?(equipo, fn p ->
+          p["id"] == id_pokemon
+        end)
+
+      if existe do
+
+        nuevo_equipo =
+          Enum.reject(
+            equipo,
+            fn p ->
+              p["id"] == id_pokemon
+            end
+          )
+
+        nuevos_equipos =
+          Map.put(
+            equipos,
+            nombre_equipo,
+            nuevo_equipo
+          )
+
+        actualizado =
+          Map.put(
+            entrenador,
+            "equipos",
+            nuevos_equipos
+          )
+
+        guardar_entrenador(
+          usuario,
+          actualizado
+        )
+
+        {:ok, nuevo_equipo}
+
+      else
+        {:error, "Pokémon no está en el equipo"}
+      end
+  end
+end
 
   # =========================
   # GUARDADO CENTRAL
@@ -164,17 +337,23 @@ defmodule PokemonBattle.GestorEntrenadores do
   # =========================
   # CREACIÓN DE USUARIO
   # =========================
-  defp crear_entrenador(usuario, clave) do
-    %{
-      "usuario" => usuario,
-      "clave" => clave,
-      "monedas" => 0,
-      "monedas_acumuladas" => 0,
-      "victorias" => 0,
-      "inventario" => [],
-      "sobres" => [],
-      "equipos" => %{},
-      "equipo_activo" => nil
-    }
-  end
+ defp crear_entrenador(usuario, clave) do
+  %{
+    "usuario" => usuario,
+    "clave" => clave,
+    "monedas" => 0,
+    "monedas_acumuladas" => 0,
+    "victorias" => 0,
+    "inventario" => [],
+
+    "sobres" => [
+      %{
+        "id" => System.unique_integer([:positive]),
+        "tipo" => "basico"
+      }
+    ],
+
+    "equipos" => %{}
+  }
+end
 end

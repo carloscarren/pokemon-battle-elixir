@@ -7,6 +7,9 @@ defmodule PokemonBattle.MotorCombate do
     "Roca" => ["Fuego", "Hielo", "Volador", "Bicho"]
   }
 
+  # =========================
+  # CALCULAR DAÑO
+  # =========================
   def calcular_danio(
         atacante,
         defensor,
@@ -32,6 +35,41 @@ defmodule PokemonBattle.MotorCombate do
       defensor["tipos"] || []
 
     # =========================
+    # DEBUG
+    # =========================
+    IO.puts("\n=== DEBUG COMBATE ===")
+
+    IO.inspect(
+      ataque,
+      label: "ATAQUE"
+    )
+
+    IO.inspect(
+      defensa,
+      label: "DEFENSA"
+    )
+
+    IO.inspect(
+      poder,
+      label: "PODER"
+    )
+
+    IO.inspect(
+      tipo_movimiento,
+      label: "TIPO MOVIMIENTO"
+    )
+
+    IO.inspect(
+      tipos_atacante,
+      label: "TIPOS ATACANTE"
+    )
+
+    IO.inspect(
+      tipos_defensor,
+      label: "TIPOS DEFENSOR"
+    )
+
+    # =========================
     # STAB
     # =========================
     stab =
@@ -51,7 +89,7 @@ defmodule PokemonBattle.MotorCombate do
       )
 
     # =========================
-    # FACTOR ALEATORIO
+    # FACTOR RANDOM
     # =========================
     factor_random =
       :rand.uniform() * 0.15 + 0.85
@@ -72,7 +110,9 @@ defmodule PokemonBattle.MotorCombate do
         factor_random
       )
 
-    # DAÑO MINIMO
+    # =========================
+    # DAÑO MÍNIMO
+    # =========================
     dano_final =
       max(dano_final, 1)
 
@@ -80,13 +120,17 @@ defmodule PokemonBattle.MotorCombate do
       dano: dano_final,
       stab: stab,
       efectividad: efectividad,
-      factor_random: Float.round(
-        factor_random,
-        2
-      )
+      factor_random:
+        Float.round(
+          factor_random,
+          2
+        )
     }
   end
 
+  # =========================
+  # EFECTIVIDAD
+  # =========================
   defp calcular_efectividad(
          tipo_movimiento,
          tipos_defensor
@@ -117,6 +161,9 @@ defmodule PokemonBattle.MotorCombate do
     )
   end
 
+  # =========================
+  # FUERTE CONTRA
+  # =========================
   defp fuerte_contra?(
          tipo1,
          tipo2
