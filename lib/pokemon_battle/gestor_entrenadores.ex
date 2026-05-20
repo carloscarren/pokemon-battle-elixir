@@ -356,4 +356,123 @@ end
     "equipos" => %{}
   }
 end
+# =========================
+# RANKING
+# =========================
+def ranking() do
+  data = Persistencia.cargar()
+
+  data
+  |> Map.values()
+  |> Enum.sort_by(
+    fn entrenador ->
+      entrenador["victorias"] || 0
+    end,
+    :desc
+  )
+  |> Enum.with_index(1)
+  |> Enum.each(fn {e, pos} ->
+
+    monedas =
+      e["monedas"] || 0
+
+    victorias =
+      e["victorias"] || 0
+
+    IO.puts(
+      "#{pos}. #{e["usuario"]} | " <>
+      "Victorias: #{victorias} | " <>
+      "Monedas: #{monedas}"
+    )
+  end)
+end
+# =========================
+# INTERCAMBIAR POKÉMON
+# =========================
+def intercambiar_pokemon(
+      origen,
+      destino,
+      id_pokemon
+    ) do
+
+  data =
+    Persistencia.cargar()
+
+  entrenador_origen =
+    data[origen]
+
+  entrenador_destino =
+    data[destino]
+
+  inventario_origen =
+    entrenador_origen["inventario"]
+
+  pokemon =
+    Enum.find(
+      inventario_origen,
+      fn p ->
+        p["id"] == id_pokemon
+      end
+    )
+
+  cond do
+
+    pokemon == nil ->
+      {:error,
+       "Pokémon no encontrado"}
+
+    entrenador_destino == nil ->
+      {:error,
+       "Entrenador destino no existe"}
+
+    true ->
+
+      nuevo_inventario_origen =
+        Enum.reject(
+          inventario_origen,
+          fn p ->
+            p["id"] == id_pokemon
+          end
+        )
+
+      nuevo_inventario_destino =
+        entrenador_destino["inventario"] ++
+        [pokemon]
+
+      origen_actualizado =
+        Map.put(
+          entrenador_origen,
+          "inventario",
+          nuevo_inventario_origen
+        )
+
+      destino_actualizado =
+        Map.put(
+          entrenador_destino,
+          "inventario",
+          nuevo_inventario_destino
+        )
+
+      nuevo_data =
+        data
+        |> Map.put(
+          origen,
+          origen_actualizado
+        )
+        |> Map.put(
+          destino,
+          destino_actualizado
+        )
+
+      Persistencia.guardar(
+        nuevo_data
+      )
+
+      IO.puts(
+        "#{origen} envió #{pokemon["especie"]} a #{destino}"
+      )
+
+      {:ok, pokemon}
+  end
+end
 end

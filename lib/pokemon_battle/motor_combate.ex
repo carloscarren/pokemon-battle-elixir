@@ -97,11 +97,11 @@ defmodule PokemonBattle.MotorCombate do
     # =========================
     # FORMULA DAÑO
     # =========================
-    dano_base =
-      trunc(
-        (poder * (ataque / defensa)) / 5 + 2
-      )
-
+dano_base =
+  trunc(
+    (((20 * poder * (ataque / defensa))
+    / 50) + 2)
+  )
     dano_final =
       trunc(
         dano_base *
